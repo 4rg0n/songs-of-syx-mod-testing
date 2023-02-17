@@ -1,4 +1,4 @@
-package com.argon.sos.testing.log;
+package com.github.argon.sos.testing.log;
 
 import java.util.HashMap;
 import java.util.Map;

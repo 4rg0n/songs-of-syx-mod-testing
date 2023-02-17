@@ -1,4 +1,4 @@
-package com.argon.sos.testing.test;
+package com.github.argon.sos.testing.test;
 
 import init.biomes.TERRAINS;
 import init.paths.PATHS;
@@ -56,8 +56,6 @@ public class BeforeGameCreatedAvailabilityTest {
         assertThat(PATHS.TEXT_WORLD()).as("PATHS.TEXT_WORLD()").isNotNull();
         assertThat(PATHS.currentMods()).as("PATHS.currentMods()").isNotEmpty();
     }
-
-
 
     private static void testTERRAINS() {
         assertThat(TERRAINS.INFO()).as("TERRAINS.INFO()").isNotNull();

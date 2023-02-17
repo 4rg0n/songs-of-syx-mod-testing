@@ -1,8 +1,10 @@
-package com.argon.sos.testing;
+package com.github.argon.sos.testing;
 
-import com.argon.sos.testing.test.AfterGameCreatedAvailabilityTest;
-import com.argon.sos.testing.test.BeforeGameCreatedAvailabilityTest;
-import com.argon.sos.testing.test.RunningGameAvailabilityTest;
+import com.github.argon.sos.testing.log.Logger;
+import com.github.argon.sos.testing.log.Loggers;
+import com.github.argon.sos.testing.test.AfterGameCreatedAvailabilityTest;
+import com.github.argon.sos.testing.test.BeforeGameCreatedAvailabilityTest;
+import com.github.argon.sos.testing.test.RunningGameAvailabilityTest;
 import lombok.NoArgsConstructor;
 import script.SCRIPT;
 import snake2d.util.file.FileGetter;
@@ -17,6 +19,8 @@ public final class TestScript implements SCRIPT {
 
 	private final INFO info = new INFO("Testing Mod", "Tests for certain compatibility issues.");
 
+    private final static Logger log = Loggers.getLogger(TestScript.class);
+
 	@Override
 	public CharSequence name() {
 		return info.name;
@@ -29,12 +33,16 @@ public final class TestScript implements SCRIPT {
 
 	@Override
 	public void initBeforeGameCreated() {
+		log.info("Running %s", BeforeGameCreatedAvailabilityTest.class.getSimpleName());
 		BeforeGameCreatedAvailabilityTest.test();
+		log.info("Test OK");
 	}
 
 	@Override
 	public SCRIPT_INSTANCE initAfterGameCreated() {
+		log.info("Running %s", AfterGameCreatedAvailabilityTest.class.getSimpleName());
 		AfterGameCreatedAvailabilityTest.test();
+		log.info("Test OK");
 		return new Instance();
 	}
 
@@ -45,7 +53,9 @@ public final class TestScript implements SCRIPT {
 		@Override
 		public void update(double ds) {
 			if (!testRan) {
+				log.info("Running %s", RunningGameAvailabilityTest.class.getSimpleName());
 				RunningGameAvailabilityTest.test();
+				log.info("Test OK");
 				testRan = true;
 			}
 		}

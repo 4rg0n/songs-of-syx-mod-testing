@@ -1,5 +1,7 @@
-package com.argon.sos.testing.test;
+package com.github.argon.sos.testing.test;
 
+import com.github.argon.sos.testing.log.Logger;
+import com.github.argon.sos.testing.log.Loggers;
 import game.GAME;
 import game.faction.FACTIONS;
 import game.time.TIME;
@@ -20,6 +22,9 @@ import world.army.WINDU;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AfterGameCreatedAvailabilityTest {
+    private final static Logger log = Loggers.getLogger(AfterGameCreatedAvailabilityTest.class);
+
+
     public static void test() {
         testGAME();
         testFACTIONS();

@@ -1,4 +1,4 @@
-package com.argon.sos.testing.test;
+package com.github.argon.sos.testing.test;
 
 import game.GAME;
 import view.main.VIEW;
